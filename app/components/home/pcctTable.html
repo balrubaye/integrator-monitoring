@@ -1,0 +1,27 @@
+
+<div>
+	Filter:<input  name="filterData"  ng-model="search" /> 
+<table class="table table-striped table-hover">
+
+	<thead>
+        <tr >
+          <th>Planned Customer Choice Id</th>
+          <th>Assorted Customer Choice Id</th>
+          <th>Last Modified</th>
+          
+        </tr>
+    </thead>
+      
+<tbody>
+  <tr ng-repeat="pcct in pcctData | filter:search" ng-class=" { 'danger': pcct.errorInformation !==null, 'success': pcct.errorInformation ===null }" >
+  		<td>{{ pcct.plannedCustomerChoiceId }}</td>
+  		<td>{{ pcct.assortedCustomerChoiceId }}</td>
+  		<td>{{ pcct.lastModified | date:'medium'}}</td>
+
+
+
+  </tr>
+  </tbody>
+</table>
+
+</div>

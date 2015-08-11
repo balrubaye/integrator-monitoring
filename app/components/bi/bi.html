@@ -1,0 +1,53 @@
+﻿
+<div class="page-header" id="banner">
+        <div class="row">
+         
+            <h1>BI Monitoring</h1>
+            <p class="lead">Click any of the buttons below to see what have been processed </p>        
+        </div>
+</div>
+
+
+<div class="row">
+	<button type="button" class="btn btn-success" ng-click="getProccessedPccts(0)">Today Update</button>
+	<button type="button" class="btn btn-success" ng-click="getProccessedPccts(3600000)">Last hour Update</button>
+	<button type="button" class="btn btn-success" ng-click="getProccessedPccts(1800000)">30 minutes Update</button>
+	<button type="button" class="btn btn-success" ng-click="getProccessedPccts(900000)">15 minutes Update</button>
+	
+	<div class="btn-group">
+                  <a class="btn btn-primary" ng-click="getInProgressPccts()">In Progress CCs <span class="badge">{{inProgressCC}}</span></a>
+                  
+     </div>
+</div>
+
+<section ng-if='data'>
+	<div class="page-header">
+		<h3>Proccessed Planned CCs after {{ requiredDate | date:'medium' }}</h3>
+	</div>
+
+	<div class="bs-componenet">
+		<dd-pie pie-config="pieConfig" data="data" ng-if="data"></dd-pie>
+
+		<pcct-table pcct-data="data" ng-if="data"> </pcct-table>
+
+	</div>
+
+</section>
+
+
+<section ng-if='!data'>
+	<div class="bs-docs-section">
+	 <div class="row">
+	  <div class="col-lg-4">
+            <div class="bs-component">
+              <div class="alert alert-dismissible alert-danger">
+                
+                <strong>Oh snap!</strong> There are no CCs, try submitting again.
+              </div>
+            </div>
+          </div>		
+
+	  </div>
+	 </div> 
+   </div>
+</section>
