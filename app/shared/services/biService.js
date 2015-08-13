@@ -1,17 +1,17 @@
 
 angular.module('IntegratorMonApp')
-.service('biService', [ '$http', 'SERVICE_URL', function($http, SERVICE_URL){
+.service('biService', [ '$http', 'Config', function($http, Config){
 
 		this.getProccessedPcct = function(date){ 
-        	return $http.get("http://localhost:52348"+ SERVICE_URL.getProccessedPcct + date);       
+        	return $http.get(Config.env.dev + Config.serviceUrl.getProccessedPcct + date);       
         };
 
     	this.getLastActivity = function(){
-    		return $http.get("http://localhost:52348" + SERVICE_URL.getLastActivity );    		
+    		return $http.get(Config.env.dev + Config.serviceUrl.getLastActivity );    		
     	};
 
     	this.getInProgressPccts= function(){
-    		return $http.get("http://localhost:52348" + SERVICE_URL.getInProgressPccts);
+    		return $http.get(Config.env.dev + Config.serviceUrl.getInProgressPccts);
     	};
 
 	
