@@ -10,5 +10,5 @@ then
 
 >gulp
 
-Doing this for fun and learning!
+Doing this for fun and learning! I still need to add more features.
 
