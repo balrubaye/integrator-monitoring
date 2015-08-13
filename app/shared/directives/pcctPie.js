@@ -9,7 +9,7 @@ angular
         return{
             restrict:"AE",
             replace:true,
-            template:'<div id="myPie"></div>',
+            template:'<div class="col-lg-12"><div id="myPie"></div> </div>',
             scope:{pieConfig:"=pieConfig", data:"=data"},
             link: function(scope, elm, attr){
                 console.log("Link is running !!");
